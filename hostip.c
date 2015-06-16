@@ -11,7 +11,7 @@ struct addrinfo hints;
 struct addrinfo* res; /* store the result */
 
 static void 
-init_hints(void) {
+set_hints(void) {
 	hints.ai_family   = AF_INET;
 	hints.ai_socktype = SOCK_STREAM;
 	hints.ai_flags    = hints.ai_flags | AI_CANONNAME;
@@ -51,7 +51,7 @@ lookup_host(void){
 
 	retval = 0;
 	/* initiaise the adrinfo hints */
-	init_hints();
+	set_hints();
 	switch(getaddrinfo(host, NULL, &hints, &res)) {
 		case 0:
 			break;
