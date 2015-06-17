@@ -57,6 +57,7 @@ lookup_host(void){
 			break;
 		default:
 			fprintf(stderr, "%s\n", gai_strerror(errno));
+			retval = -1;
 	}
 done:	
 	return retval;
